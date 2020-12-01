@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 //routes
 const userRoutes = require('./routes/user');
+const adminRoutes = require('./routes/admin/user');
 
 
 //enviroment variable
@@ -27,6 +28,7 @@ mongoose.connect(
 
 app.use(bodyParser());
 app.use('/api', userRoutes);
+app.use('/api', adminRoutes);
 
 
 app.listen(process.env.PORT, () =>{
