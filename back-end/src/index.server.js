@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
 const env = require('dotenv');
-const bodyParser = require('body-parser');
+
 const mongoose = require('mongoose');
 
 //routes
 const userRoutes = require('./routes/user');
 const adminRoutes = require('./routes/admin/user');
+const categoryRoutes = require('./routes/categories');
 
 
 //enviroment variable
@@ -26,9 +27,10 @@ mongoose.connect(
 });
 
 
-app.use(bodyParser());
+app.use(express.json());
 app.use('/api', userRoutes);
 app.use('/api', adminRoutes);
+app.use('/api', categoryRoutes);
 
 
 app.listen(process.env.PORT, () =>{
