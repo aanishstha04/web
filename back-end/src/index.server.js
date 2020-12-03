@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/user');
 const adminRoutes = require('./routes/admin/user');
 const categoryRoutes = require('./routes/categories');
+const productRoutes = require('./routes/product');
 
 
 //enviroment variable
@@ -31,6 +32,7 @@ app.use(express.json());
 app.use('/api', userRoutes);
 app.use('/api', adminRoutes);
 app.use('/api', categoryRoutes);
+app.use('/api', productRoutes);
 
 
 app.listen(process.env.PORT, () =>{
