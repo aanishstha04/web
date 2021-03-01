@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const env = require('dotenv');
-
+const morgan = require('morgan');
 const mongoose = require('mongoose');
 
 //routes
@@ -9,6 +9,7 @@ const userRoutes = require('./routes/user');
 const adminRoutes = require('./routes/admin/user');
 const categoryRoutes = require('./routes/categories');
 const productRoutes = require('./routes/product');
+const bodyParser = require('body-parser');
 
 
 //enviroment variable
@@ -27,6 +28,8 @@ mongoose.connect(
     console.log('database connected');
 });
 
+app.use(morgan());
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.json());
 app.use('/api', userRoutes);

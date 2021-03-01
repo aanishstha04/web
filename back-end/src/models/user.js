@@ -11,7 +11,6 @@ const userSchema = new mongoose.Schema({
     },
     lastName: {
         type: String,
-        required: true,
         trim: true,
         min: 3,
         max : 20
@@ -29,11 +28,13 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true,
         unique: true,
-        lowercase: true
+        lowercase: true,
+        
     },
     hash_password: {
         type: String,
-        required: true
+        required: true,
+        
     },
     role: {
         type: String,
